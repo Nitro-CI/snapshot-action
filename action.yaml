@@ -1,0 +1,15 @@
+name: 'Snapshotter'
+description: 'Snapshots the current work directory and docker lib.'
+inputs:
+  snapshot-id:  # id of input
+    description: 'A unique identifier of this snapshot'
+    required: true
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-number }}
+runs:
+  using: "composite"
+  steps:
+    - run: echo Hello ${{ inputs.snapshot-id }}.
+      shell: bash
